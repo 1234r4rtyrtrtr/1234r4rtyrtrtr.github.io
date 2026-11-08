@@ -850,7 +850,7 @@ function interact(e){
       simple(e,st<7?'놀GM은 시험 끝나고! 지금은 프로젝트 하러 가요.':'다음 놀GM 메뉴는 네가 정해.');return;
     case 'pr':
       if(st===8){runEnc([{e,say:'학기 말 성과 리포트, 네가 써 볼래? 매출은 작고 현장 실험은 진행 중이야. 어떻게 쓸까?'},{e,step:SIM.r8},{e,say:'좋아, 올릴게. 이제 포스트잇 벽 앞에서 1년을 돌아봐.'}],()=>setStage(9));return;}
-      simple(e,'릴스 소재 있으면 DM 줘요. 현장 손 사진, 웃음소리, 뭐든.');return;
+      simple(e,'릴스 소재 있으면 DM 줘요. 현장 사진, 웃음소리, 뭐든.');return;
     case 'postwall':
       if(st===9){simEnd();return;}
       if(allDone()){report();return;}
