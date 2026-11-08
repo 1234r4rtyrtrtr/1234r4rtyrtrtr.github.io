@@ -482,9 +482,9 @@ const ENT=[
  /* cafe */
  {id:'owner',kind:'npc',x:7,y:21,name:'카페 사장',role:'멘토링 카페',pal:'owner',key:'owner',face:'d'},
  {id:'mentor',kind:'npc',x:8,y:26,name:'멘토',role:'알럼나이 · Business Leader',pal:'mentor',key:'mentor',face:'u'},
- {id:'prof',kind:'npc',x:13,y:23,name:'안경 쓴 분',role:'카페 손님',pal:'prof',key:'seat',line:'학내 행정이나 제도 문제는 저한테 말해요. 교육 기회도 챙겨 줄 수 있고요. 아, 저는 교수입니다.',face:'l'},
- {id:'biz',kind:'npc',x:4,y:26,name:'정장 입은 분',role:'카페 손님',pal:'biz',key:'seat',line:'다음 PIC 심사위원석에서 봅시다. 전략은 봐 줄 테니 숫자는 직접 가져와요. 우리 회사도 인액터스를 후원하거든요.',face:'r'},
- {id:'stu',kind:'npc',x:10,y:24,name:'노트북 든 학생',role:'카페 손님',pal:'stu',key:'seat',line:'우리 팀 피칭 준비 중이에요. 팀 꾸리고, 현장 다니고, 임팩트 만드는 건 결국 학생 몫이죠.',face:'l'},
+ {id:'prof',kind:'npc',x:13,y:23,name:'안경 쓴 분',role:'카페 손님',pal:'prof',key:'seat',line:'학내 행정이나 제도 문제는 저한테 바로 말해요. 공간, 서류, 교육 기회, 제가 먼저 뛰어 줄게요. 학생들이 현장에만 집중하게 하는 게 제 일이니까요. 아, 저는 지도교수예요.',face:'l'},
+ {id:'biz',kind:'npc',x:4,y:26,name:'정장 입은 분',role:'카페 손님',pal:'biz',key:'seat',line:'다음 PIC 심사위원석에서 봅시다. 전략은 제가 끝까지 봐 줄게요. 대신 숫자는 직접 가져와요. 우리 회사가 인액터스를 후원하는 건 후배들이 진짜 사업을 해내는 걸 보고 싶어서예요. 필요하면 우리 회사 사람들한테도 연결해 줄게요.',face:'r'},
+ {id:'stu',kind:'npc',x:10,y:24,name:'노트북 든 학생',role:'카페 손님',pal:'stu',key:'seat',line:'우리 팀 피칭 준비 중이에요. 지난주엔 현장에 세 번 갔고, 오늘 밤엔 BM을 다시 고칠 거예요. 팀 꾸리고, 현장 다니고, 임팩트 만드는 건 결국 학생 몫이죠. 그게 재밌어서 하는 거고요. 같이 할래요?',face:'l'},
  {id:'s4',kind:'sign',x:10,y:19,name:'멘토링 카페',key:'sign',text:'매주 멘토를 만나 아이디어를 점검하는 곳. 조언을 받는 시간이라기보다 토론 시간에 가까워요.'},
  /* fields */
  {id:'merchant',kind:'npc',x:26,y:22,name:'상인 아주머니',role:'전통시장',pal:'merchant',key:'field',problem:'market',face:'d'},
@@ -805,11 +805,11 @@ function interact(e){
       if(st===4){runEnc([{step:{type:'simbuild',key:'sim.build'}}],()=>setStage(5));return;}
       simple({name:'화이트보드',role:'동아리방',pal:'player'},st<3?'마커 자국만 남아 있어요. 맨 위에 작게: <b>문제가 먼저.</b>':'BM 한 장이 붙어 있어요. 누가 돈을 내는지, 대상자에게 무엇이 남는지, 우리가 떠나면 어떻게 되는지.');return;
     case 'mentor':
-      if(st===5){runEnc([{e,say:'앉아요. 매주 보는 거니까 인사는 됐고. 오늘은 질문 두 개부터.'},{e,step:SIM.r5},{e,say:'다음 주에 봐요. 그 전에 동아리방부터 들러요. 회장이 할 말이 있을 거예요.'}],()=>setStage(6));return;}
-      simple(e,st<5?'BM 한 장 들고 와요. 그래야 토론이 되죠.':'다음 멘토링은 다음 주. 데이터 더 모아 와요.');return;
+      if(st===5){runEnc([{e,say:'왔어요? 기다렸어요. 지난주 자료를 어젯밤에 다시 읽다가 질문이 두 개 생겼어요. 매주 이 시간이 제 한 주에서 제일 기대되는 시간이에요. 자, 시작하죠.'},{e,step:SIM.r5},{e,say:'좋아요. 이 질문들, 무대에서 심사위원이 똑같이 물을 거예요. 그때 오늘처럼 답하면 돼요. 다음 주에도 여기 있을게요. 아, 그 전에 동아리방부터 들러요. 회장이 할 말이 있대요.'}],()=>setStage(6));return;}
+      simple(e,st<5?'BM 한 장 들고 와요. 빈 종이여도 괜찮아요, 같이 채우면 되니까. 저는 매주 이 자리에 있어요.':'다음 주에 봐요. 데이터 더 모아 오면 제 네트워크에서 만날 사람도 더 소개할게요. 혼자 뛰게 두진 않아요.');return;
     case 'owner':
-      if(!P['community.roles']){runEnc([{e,say:'우리 카페엔 인액터스 사람들이 자주 와요. 저기 앉은 세 분, 누가 누군지 맞혀 볼래요? 먼저 말을 걸어 봐도 좋고요.'},{e,step:Q.roles}],null);return;}
-      simple(e,'커피 한 잔? 멘토링 전엔 아메리카노가 잘 나가요.');return;
+      if(!P['community.roles']){runEnc([{e,say:'어서 와요! 여기 손님 절반이 인액터스 사람이에요. 멘토링 날엔 토론이 길어져서 저도 가게를 늦게 닫아요. 저기 앉은 세 분, 오늘도 후배들 도우러 일부러 나오셨어요. 누가 누군지 맞혀 볼래요? 먼저 말을 걸어 봐도 좋아요.'},{e,step:Q.roles}],null);return;}
+      simple(e,'오늘도 멘토링? 아메리카노 한 잔은 제가 살게요. 열심히 하는 팀한텐 늘 그래요.');return;
     case 'seat':simple(e,esc(e.line));return;
     case 'alum':
       if(!P['what.def']){runEnc([{e,say:'SC에 온 걸 환영해요. 10기 알럼나이예요. 인액터스가 뭔지, 이름부터 풀어 볼까요?'},{e,step:Q.name},{e,step:Q.def},{e,say:'<span class="quote">“치열하게 고민하고, 시원하게 실패를 맞이하고, 뜨겁게 일어나십쇼.”<span>10기 알럼나이 서우현 선배의 말</span></span>'}],null);return;}
