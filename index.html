@@ -488,7 +488,7 @@ const ENT=[
  {id:'v4',kind:'shop',x:27,y:33,w:5,h:2,name:'119REO',solid:true},
  {id:'v5',kind:'shop',x:35,y:33,w:5,h:2,name:'네모의 꿈',solid:true},
  {id:'hq',kind:'shop',x:45,y:33,w:6,h:2,name:'인액터스 코리아 사무국',short:'사무국',solid:true,color:'#FFC222'},
- {id:'chk',kind:'shop',x:52,y:33,w:5,h:2,name:'치킨집',short:'치킨 · 놀GM',solid:true,color:'#D7623A'},
+ {id:'chk',kind:'shop',x:52,y:33,w:5,h:2,name:'치킨집',short:'놀GM',solid:true,color:'#D7623A'},
  {id:'vn1',kind:'npc',x:5,y:35,name:'고요한M 직원',role:'임팩트 벤처',pal:'shop',key:'shop',v:1,face:'d'},
  {id:'vn2',kind:'npc',x:13,y:35,name:'동구밭 직원',role:'임팩트 벤처',pal:'shop',key:'shop',v:2,face:'d'},
  {id:'vn3',kind:'npc',x:21,y:35,name:'두핸즈 직원',role:'임팩트 벤처',pal:'shop',key:'shop',v:3,face:'d'},
@@ -868,7 +868,7 @@ function showMap(){
   ENT.forEach(e=>{if(e.kind==='shop'||e.kind==='booth'||e.kind==='bus'){c.fillStyle=e.color||'#2E3A55';c.fillRect(e.x*2,e.y*2,e.w*2,e.h*2);}});
   ENT.forEach(e=>{const m=newFor(e);if(m){c.fillStyle='#FFC222';c.fillRect(e.x*2-1,e.y*2-1,4,4);}else if(e.kind==='npc'){c.fillStyle='#F3EEE2';c.fillRect(e.x*2,e.y*2,2,2);}});
   const [tx,ty]=ptile();c.fillStyle='#D7623A';c.fillRect(tx*2-1,ty*2-1,4,4);
-  const labels=[[9,1,'동아리방'],[29,1,'SC 강당'],[50,1,'박람회 광장'],[8,19,'카페'],[26,17,'시장'],[42,17,'밭'],[56,17,'골목'],[20,32,'벤처 거리'],[47,32,'사무국'],[54,32,'치킨집'],[58,41,'버스']];
+  const labels=[[9,1,'동아리방'],[29,1,'SC 강당'],[50,1,'박람회 광장'],[8,19,'카페'],[26,17,'시장'],[42,17,'밭'],[56,17,'골목'],[20,32,'벤처 거리'],[47,32,'사무국'],[54,32,'놀GM'],[58,41,'버스']];
   openOv(`<span class="lab">Map · Wonju</span><div style="position:relative"><img class="mini" src="${mc.toDataURL()}" alt="원주 지도"><div id="lbls" style="position:absolute;inset:0;pointer-events:none"></div></div>
     <div class="legend"><span><i style="background:#D7623A"></i>나</span><span><i style="background:#FFC222"></i>할 일 있는 곳</span><span><i style="background:#F3EEE2;border:1px solid #999"></i>사람</span></div>
     <div class="row end"><button class="btn ghost" data-close>닫기</button></div>`,true);
