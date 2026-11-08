@@ -154,7 +154,7 @@ tr:first-child td,tr:first-child th{border-top:0}
 .slot.ok{border-color:var(--good);background:var(--good-bg)}
 .slot.no{border-color:var(--bad);background:var(--bad-bg)}
 .slot .ans{margin-left:auto;font-size:11px;color:var(--muted);text-align:right}
-.match{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:8px}
+.match{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:8px;align-items:start}
 .match .col{display:flex;flex-direction:column;gap:6px;min-width:0}
 .mi{appearance:none;text-align:left;border:1.5px solid var(--line);background:var(--paper);border-radius:9px;padding:8px 10px;font-size:13px;line-height:1.4;min-height:42px}
 .mi.sel{border-color:var(--fg);background:var(--soft)}
@@ -210,7 +210,7 @@ tr:first-child td,tr:first-child th{border-top:0}
 @keyframes fadein{from{opacity:0;transform:translate(-50%,-46%)}to{opacity:1;transform:translate(-50%,-50%)}}
 .endclose{position:absolute;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));z-index:2}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
-@media (max-width:420px){.match{grid-template-columns:1fr}}
+@media (max-width:420px){.match{gap:6px}.mi{font-size:12px;padding:7px 8px;min-height:40px;line-height:1.35}}
 </style>
 
 </head>
